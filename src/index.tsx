@@ -1,17 +1,28 @@
 import { render } from "react-dom";
 import React from "react";
 
-import App from "./App/App";
+import Home from "./pages/Home/Home";
 
 import "./index.css";
 import { ApolloProvider } from "@apollo/client";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import apolloClient from "./lib/apolloClient";
+import VideoDetails from "./pages/VideoDetails";
+
 
 const rootElement = document.getElementById("root");
 
 render(
-	<ApolloProvider client={apolloClient}>
-		<App />
-	</ApolloProvider>,
+	<Router>
+		<ApolloProvider client={apolloClient}>
+			<Route exact path='/'>
+				<Home />
+			</Route>
+			<Route exact path='/videos/:videoID'>
+				<VideoDetails />
+			</Route>
+		</ApolloProvider>
+	</Router>,
 	rootElement
 );

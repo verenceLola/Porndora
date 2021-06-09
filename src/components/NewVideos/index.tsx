@@ -1,6 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
 import React, { ReactElement } from "react";
-import VideosSection from "../components/VideosSection";
+import VideosSection from "../VideosSection";
 
 const NEW_VIDEOS = gql`
     query newVideos {

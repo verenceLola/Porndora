@@ -1,0 +1,3 @@
+interface VideoDetail {
+    muxPlaybackID: string
+}

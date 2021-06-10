@@ -1,0 +1,9 @@
+@media (max-width: 768px){
+    .navbar-brand {
+        flex-grow: 1;
+
+    }
+    .navbar-items {
+        flex-shrink: 0;
+    }
+}

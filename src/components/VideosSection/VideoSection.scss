@@ -1,0 +1,44 @@
+@import '/src/styles/_config.scss';
+@import '/src/styles/_utilities.scss';
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+
+.category-container {
+    @include margin-padding-5;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    overflow: auto;
+
+    .category-name {
+        color: $primary-color;
+        font-size: larger;
+        margin: 5px 0;
+        text-transform: capitalize;
+
+    }
+
+    .videos {
+        display: flex;
+        margin: 5px 0;
+        align-items: center;
+        padding: 5px 0;
+
+        img {
+            border-radius: 25px;
+            width: 270px;
+            transition: transform .2s;
+            height: 150px;
+            margin-right: 25px;
+
+            &:hover {
+                transform: scale(1.06);
+                cursor: pointer;
+            }
+        }
+    }
+}

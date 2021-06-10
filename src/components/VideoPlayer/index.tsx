@@ -1,7 +1,7 @@
 import React, { ReactElement, useEffect, useRef } from "react";
 import Hls from "hls.js";
 
-
+import "./VideoPlayer.scss";
 
 
 const VideoPlayer = (props: VideoDetail): ReactElement => {
@@ -36,9 +36,10 @@ const VideoPlayer = (props: VideoDetail): ReactElement => {
 	return (
 		<video
 			controls
-			ref={videoRef}
 			autoPlay
-			className='w-100'
+			ref={videoRef}
+			className='player'
+			preload='metadata'
 			poster={`https://image.mux.com/${muxPlaybackID}/thumbnail.jpg`}
 		/>
 	);

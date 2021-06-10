@@ -1,0 +1,63 @@
+@import '../../styles/config';
+@import '../../styles/_utilities.scss';
+
+@include tooltip;
+
+@mixin margin-padding {
+    margin: 5px 5px;
+    padding: 5px 5px;
+}
+
+.nav {
+    @include margin-padding;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    justify-content: space-between;
+   
+
+    .navbar-brand {
+        display: flex;
+
+        img {
+            height: 50%;
+            width: 75%;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+    }
+
+    .navbar-items {
+        display: flex;
+        align-items: flex-end;
+        @include margin-padding;
+
+        button {
+            border-radius: 15px;
+            padding: 5px 10px;
+            margin: 5px;
+            border-width: 1px;
+            color: $primary-color;
+            border-color: $primary-color;
+            background: $background-color;
+            text-transform: capitalize;
+            border-style: solid;
+            outline: none;
+
+            &:hover {
+                color: black;
+                background-color: $primary-color;
+                cursor: pointer;
+            }
+
+            &:active {
+                color: $primary-color;
+                background-color: $background-color;
+            }
+        }
+    }
+}
+
+@import './mobile'

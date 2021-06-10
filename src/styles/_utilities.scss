@@ -1,0 +1,31 @@
+@import "./config";
+
+.container {
+    padding: 5px;
+    margin: 5px auto;
+}
+
+@mixin tooltip {
+    .tooltip {
+        position: relative;
+        display: inline-block;
+
+        .tooltiptext {
+            background-color: $secondary-color;
+            color: #fff;
+            text-align: center;
+            border-radius: 16px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            font-size: smaller;
+            bottom: 60%;
+            width: 20px;
+            left: 40%;
+            margin-left: 25px;
+            height: 20px;
+        }
+
+        
+    }
+}

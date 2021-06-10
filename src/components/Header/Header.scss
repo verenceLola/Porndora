@@ -5,12 +5,15 @@
 
 
 .nav {
-    @include margin-padding-5;
+    padding: 5px;
     display: flex;
     align-items: center;
     width: 100%;
+    height: 60px;
     position: fixed;
     top: 0;
+    z-index: $max-z-index;
+    background-color: $background-color;
     justify-content: space-between;
    
 

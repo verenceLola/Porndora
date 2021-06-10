@@ -3,6 +3,13 @@
   text-align: center;
 }
 
-main > .container {
-  padding-top: 80px;
+main {
+  .container {
+    padding-top: 60px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
 }

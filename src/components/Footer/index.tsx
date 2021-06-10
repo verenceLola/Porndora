@@ -1,35 +1,35 @@
 import React, { ReactElement } from "react"
 ;
-import { Col, Container, Row } from "react-bootstrap";
+
 
 const Footer = (): ReactElement => (
 	<footer className='footer mt-auto py-3 bg-dark'>
-		<Container style={{color: "white"}}>
-			<Row>
-				<Col>
+		<div style={{color: "white"}}>
+			<div>
+				<div>
 					<p>&copy;Porndora.com</p>
-				</Col>
-				<Col>
-					<p>All Rights Reserved</p></Col>
-			</Row>
-			<Row>
-				<Col>
+				</div>
+				<div>
+					<p>All Rights Reserved</p></div>
+			</div>
+			<div>
+				<div>
 					<p>2257</p>
-				</Col>
-				<Col>
+				</div>
+				<div>
 					<p>DMCA</p>
-				</Col>
-				<Col>
+				</div>
+				<div>
 					<p>Privacy Policy</p>
-				</Col>
-				<Col>
+				</div>
+				<div>
 					<p>Terms of Service</p>
-				</Col>
-				<Col>
+				</div>
+				<div>
 					<p>Shop</p>
-				</Col>
-			</Row>
-		</Container>
+				</div>
+			</div>
+		</div>
 	</footer>
 );
 

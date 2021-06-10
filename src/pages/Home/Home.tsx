@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import PopularVideos from "../../components/PopularVideos";
 import NewVideos from "../../components/NewVideos";
 
-import "./styles.scss";
+import "./Home.scss";
 
 const Home = () : ReactElement => (
 	<div className="App d-flex flex-column h-100 bg-dark">

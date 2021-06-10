@@ -9,6 +9,9 @@
     color: $primary-color;
     background-color: $background-color;
     z-index: $max-z-index;
+    border-color: grey transparent transparent transparent;
+    border-style: solid none none none;
+    border-top-width: 1px;
 
     .container {
         @include center-horizontal;

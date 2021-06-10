@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react";
 
-import "./styles.css";
+import "./styles.scss";
 import "bootstrap/dist/css/bootstrap.css";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";

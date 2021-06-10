@@ -7,7 +7,7 @@ import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import VideoPlayer from "../../components/Player";
 
-import "./index.css";
+import "./index.scss";
 
 const VIDEO_DETAILS = gql`
     query videoDetails($videoid: Int!) {

@@ -1,0 +1,49 @@
+@import "../../styles/config";
+@import '/src/styles/utilities';
+
+
+.footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    color: $primary-color;
+
+    .container {
+        @include center-horizontal;
+        display: grid;
+        grid-template-areas: 'copyright' 'license';
+
+        .copyright {
+            @include center-horizontal;
+            grid-area: copyright;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+
+            div {
+                padding: 5px;
+            }
+        }
+
+        .license {
+            @include center-horizontal;
+            grid-area: license;
+            display: flex;
+
+            .license-detail {
+                display: flex;
+                align-items: center;
+
+                * {
+                    padding: 5px;
+                }
+
+                span {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@import './mobile';

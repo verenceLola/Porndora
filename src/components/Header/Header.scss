@@ -3,13 +3,9 @@
 
 @include tooltip;
 
-@mixin margin-padding {
-    margin: 5px 5px;
-    padding: 5px 5px;
-}
 
 .nav {
-    @include margin-padding;
+    @include margin-padding-5;
     display: flex;
     align-items: center;
     width: 100%;
@@ -32,7 +28,7 @@
     .navbar-items {
         display: flex;
         align-items: flex-end;
-        @include margin-padding;
+        @include margin-padding-5;
 
         button {
             border-radius: 15px;

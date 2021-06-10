@@ -1,7 +1,6 @@
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import React, { ReactElement } from "react";
-import { Container, Image } from "react-bootstrap";
 import { useParams } from "react-router";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
@@ -42,13 +41,13 @@ const Details =({video}: IProps) : ReactElement => {
 	const {id, title, videoTags, numLikes,createdAt, format} = video;
 
 	return (
-		<Container className='d-flex flex-column' style={{height: 400}}>
+		<div className='d-flex flex-column' style={{height: 400}}>
 			<p className='display-5' style={{color: "white"}}>{title}</p>
-			<Container className='d-flex justify-content-around'>
-				<Image src='example.com' />
-				<Image src='www.another.com' />
-				<Image src='example.com' />
-			</Container>
+			<div className='d-flex justify-content-around'>
+				<img src='example.com' />
+				<img src='www.another.com' />
+				<img src='example.com' />
+			</div>
 			<div className='container'>
 				<p className='display-6'>13.6K Views</p>
 				<p className='display-6'>{numLikes}</p>
@@ -63,7 +62,7 @@ const Details =({video}: IProps) : ReactElement => {
 					}
 				</div>
 			</div>
-		</Container>
+		</div>
 	);
 };
 
@@ -84,14 +83,14 @@ const VideoDetails = () : ReactElement =>{
 		<div className='d-flex h-100 flex-column bg-dark'>
 			<Header loggedIn/>
 			<main className='flex-shrink-0'>
-				<Container className='mx-0 px-0 w-100'>
-					<Container className='d-flex flex-column overflow-auto h-100 w-100'>
-						<Container>
+				<div className='mx-0 px-0 w-100'>
+					<div className='d-flex flex-column overflow-auto h-100 w-100'>
+						<div>
 							<VideoPlayer muxPlaybackID={muxPlaybackID} />
 							<Details video={data.video} />
-						</Container>
-					</Container>
-				</Container>
+						</div>
+					</div>
+				</div>
 			</main>
 			<Footer />
 		</div>

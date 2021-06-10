@@ -1,34 +1,35 @@
-import React, { ReactElement } from "react"
-;
+import React, { ReactElement } from "react";
+
+import "./Footer.scss";
+
+const LicenseDetails = () : ReactElement => {
+	const licenseDetails : Array<string> = ["2257", "DMCA", "Privacy Policy", "Terms of Service", "Shop"];
+
+	return (
+		<div className='license'>
+			{licenseDetails.map((detail, index) => (
+				<div key={index} className='license-detail'>
+					<p>{detail}</p>
+					<span>|</span>
+				</div>
+			))}
+		</div>
+	)
+	;
+};
 
 
 const Footer = (): ReactElement => (
-	<footer className='footer mt-auto py-3 bg-dark'>
-		<div style={{color: "white"}}>
-			<div>
+	<footer className='footer'>
+		<div className='container'>
+			<div className='copyright'>
 				<div>
 					<p>&copy;Porndora.com</p>
 				</div>
 				<div>
-					<p>All Rights Reserved</p></div>
+					<p>All Rights Reserved.</p></div>
 			</div>
-			<div>
-				<div>
-					<p>2257</p>
-				</div>
-				<div>
-					<p>DMCA</p>
-				</div>
-				<div>
-					<p>Privacy Policy</p>
-				</div>
-				<div>
-					<p>Terms of Service</p>
-				</div>
-				<div>
-					<p>Shop</p>
-				</div>
-			</div>
+			<LicenseDetails />
 		</div>
 	</footer>
 );

@@ -5,6 +5,16 @@
     margin: 5px auto;
 }
 
+
+@mixin margin-padding-5 {
+    margin: 5px 5px;
+    padding: 5px 5px;
+}
+
+@mixin center-horizontal {
+    margin: 0 auto;
+}
+
 @mixin tooltip {
     .tooltip {
         position: relative;

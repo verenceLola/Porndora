@@ -1,0 +1,120 @@
+@import '/src/styles//config';
+@import '/src/styles/utilities';
+
+@mixin button-icons {
+  svg {
+    cursor: pointer;
+  }
+}
+
+@mixin button-icons-30 {
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+main {
+  .container {
+    padding-bottom: 60px;
+
+    .video-content {
+      > .details {
+        padding: 10px;
+
+        > .title {
+          display: flex;
+          align-items: center;
+          p {
+            color: $primary-color;
+            font-size: xx-large;
+            @include margin-padding-5;
+            max-width: min-content;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          @include button-icons;
+          svg {
+            color: $primary-color;
+            width: 25px;
+            height: 25px;
+          }
+        }
+
+        .buttons {
+          display: flex;
+          height: 50px;
+          align-items: center;
+          justify-content: space-around;
+          color: $primary-color;
+          margin: 10px 0;
+
+          @include button-icons;
+          @include button-icons-30;
+        }
+
+        hr {
+          border-color: rgb(5, 99,109);
+        }
+
+        .video-stats {
+          display: flex;
+          color: $primary-color;
+          justify-content: space-between;
+
+          div {
+            padding: 10px 0;
+            align-items: center;
+            flex-shrink: 0;
+            display: flex;
+            line-height: 20px;
+
+            * {
+              padding: 5px;
+            }
+
+            @include button-icons;
+            @include button-icons-30;
+          }
+        }
+
+        .tags-container {
+          padding: 10px;
+          color: $primary-color;
+
+          div > .title {
+            color: white;
+          }
+          div > span {
+            margin:0 10px 0 0;
+            text-transform: capitalize;
+          }
+          div > .btn-view-all {
+            cursor: pointer;
+          }
+        }
+        
+        .tags {
+          margin: 10px 0;
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .tags > span {
+          border-radius: 10px;
+          border-style: solid;
+          border-width: 1px;
+          padding:0 5px;
+          margin: 5px !important;
+          color: black;
+          background-color: $primary-color;
+          border-color: $primary-color;
+          text-transform: capitalize;
+          font-size: large;
+        }
+      }
+    }
+  }
+}

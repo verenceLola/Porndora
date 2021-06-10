@@ -2,11 +2,17 @@ import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import React, { ReactElement } from "react";
 import { useParams } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faThumbsDown, faPlusCircle, faThumbsUp, faShare, faFlag } from "@fortawesome/free-solid-svg-icons";
+
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import VideoPlayer from "../../components/Player";
+import VideoPlayer from "../../components/VideoPlayer";
 
-import "./index.scss";
+
+import "./VideoDetails.scss";
+import formatDate from "../../lib/formatDate";
 
 const VIDEO_DETAILS = gql`
     query videoDetails($videoid: Int!) {
@@ -33,35 +39,88 @@ const VIDEO_DETAILS = gql`
           }
     }`;
 
-interface IProps {
+interface IDetailsProps {
     video: Video,
 }
 
-const Details =({video}: IProps) : ReactElement => {
-	const {id, title, videoTags, numLikes,createdAt, format} = video;
+interface ITitleProps {
+	title: string,
+}
 
+const Title = ({title}: ITitleProps) : ReactElement => (
+	<div className='title'>
+		<FontAwesomeIcon icon={faHeart} />
+		<p>{title}</p>
+	</div>
+);
+
+interface IVideoActionsProps {
+	id: number,
+}
+
+const VideoActions = ({id}: IVideoActionsProps) : ReactElement => (
+	<div className='buttons'>
+		<FontAwesomeIcon icon={faThumbsUp}/>
+		<FontAwesomeIcon icon={faThumbsDown}/>
+		<FontAwesomeIcon icon={faShare}/>
+	</div>
+);
+
+interface IVideoStatsProps {
+	numLikes: number,
+	publishedAt: string,
+}
+
+const VideoStats = ({numLikes, publishedAt}: IVideoStatsProps) : ReactElement => (
+	<div className='video-stats'>
+		<div>
+			<p>13.6K Views</p>
+			<span>|</span>
+		</div>
+		<div>
+			<p>{numLikes} Likes</p>
+			<span>|</span>
+		</div>
+		<div>
+			<p>Published {formatDate(publishedAt)}</p>
+		</div>
+		<div>
+			<FontAwesomeIcon icon={faFlag} />
+		</div>
+	</div>
+);
+
+interface IVideoTagsProps {
+	tags: videoTag[],
+}
+
+const VideoTags = ({tags}: IVideoTagsProps) : ReactElement =>(
+	<div className='tags-container'>
+		<div>
+			<span className='title'>Tags</span>
+			<span className='btn-view-all'>View all</span>
+		</div>
+		<div className='tags'>
+			{
+				tags.map(tag => <span key={tag.id} className="">{tag.tag.text}{" "}{tag.tag.numLikes}</span>)
+			}
+		</div>
+		<div>
+			<FontAwesomeIcon icon={faPlusCircle} />
+		</div>
+	</div>
+);
+
+const Details =({video}: IDetailsProps) : ReactElement => {
+	const {id, title, videoTags, numLikes,createdAt} = video;
+	console.log({videoTags});
 	return (
-		<div className='d-flex flex-column' style={{height: 400}}>
-			<p className='display-5' style={{color: "white"}}>{title}</p>
-			<div className='d-flex justify-content-around'>
-				<img src='example.com' />
-				<img src='www.another.com' />
-				<img src='example.com' />
-			</div>
-			<div className='container'>
-				<p className='display-6'>13.6K Views</p>
-				<p className='display-6'>{numLikes}</p>
-				<p className='display-6'>Published at {createdAt}</p>
-				<img className='img-fluid' src='this.com' />
-			</div>
-			<div className='container'>
-				<span className='h-6' style={{color: "white"}}>Tags</span>
-				<div className='container d-flex flex-wrap'>
-					{
-						videoTags.map(tag => <span key={tag.id} className="badge rounded-pill bg-primary mx-2 mt-2">{tag.tag.text}{" "}{tag.tag.numLikes}</span>)
-					}
-				</div>
-			</div>
+		<div className='details'>
+			<Title title={title}/>
+			<VideoActions id={id}/>
+			<hr />
+			<VideoStats numLikes={numLikes} publishedAt={createdAt} />
+			<VideoTags tags={videoTags} />
 		</div>
 	);
 };
@@ -80,15 +139,13 @@ const VideoDetails = () : ReactElement =>{
 	const { muxPlaybackID } = data.video;
 
 	return (
-		<div className='d-flex h-100 flex-column bg-dark'>
+		<div className=''>
 			<Header loggedIn/>
-			<main className='flex-shrink-0'>
-				<div className='mx-0 px-0 w-100'>
-					<div className='d-flex flex-column overflow-auto h-100 w-100'>
-						<div>
-							<VideoPlayer muxPlaybackID={muxPlaybackID} />
-							<Details video={data.video} />
-						</div>
+			<main>
+				<div className='container'>
+					<div className='video-content'>
+						<VideoPlayer muxPlaybackID={muxPlaybackID} />
+						<Details video={data.video} />
 					</div>
 				</div>
 			</main>
